@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
 
 const clients = require('./routes/clients.js');
@@ -8,6 +9,9 @@ app.use('/public', express.static('public'));
 
 app.set('view engine', 'pug');
 app.set('views', './views');
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 app.use('/clients', clients);
 app.use('/comandes', comandes);
