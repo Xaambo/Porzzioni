@@ -1,0 +1,27 @@
+doctype html
+head
+  title Pizzeria Porzzioni
+  link(rel='icon' type='image/png' href='../public/images/favicon.png')
+  link(rel='stylesheet' href='../public/css/bootstrap.min.css')
+  script(src='../public/js/jquery.min.js')
+  script(src='../public/js/popper.min.js')
+  script(src='../public/js/bootstrap.min.js')
+nav.navbar.navbar-toggleable.navbar-inverse.bg-inverse
+  a.navbar-brand(href='/')
+    | Pizzeria Porzzioni
+  #navbarCollapse.collapse.navbar-collapse
+    ul.navbar-nav.mr-auto
+      li.nav-item.dropdown
+        a#navbarDropdownMenuLink.nav-link.dropdown-toggle(data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+          | Clientes
+        .dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
+          a.dropdown-item(href='/clientes/nuevo') Soy nuevo
+          a.dropdown-item(href='/clientes/login') LogIn
+      li.nav-item.dropdown
+        a#navbarDropdownMenuLink.nav-link.dropdown-toggle(data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+          | Pedidos
+        .dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
+          a.dropdown-item(href='/pedidos/nuevo') Nuevo pedido
+          a.dropdown-item(href='/pedidos/listado') Ver pedidos
+.container.m-5.text-center
+  h3 Listado de pedidos

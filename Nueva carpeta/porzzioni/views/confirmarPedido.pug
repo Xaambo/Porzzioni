@@ -1,0 +1,62 @@
+doctype html
+head
+  title Pizzeria Porzzioni
+  link(rel='icon' type='image/png' href='../public/images/favicon.png')
+  link(rel='stylesheet' href='../public/css/bootstrap.min.css')
+  script(src='../public/js/jquery.min.js')
+  script(src='../public/js/popper.min.js')
+  script(src='../public/js/bootstrap.min.js')
+nav.navbar.navbar-toggleable.navbar-inverse.bg-inverse
+  a.navbar-brand(href='/')
+    | Pizzeria Porzzioni
+  #navbarCollapse.collapse.navbar-collapse
+    ul.navbar-nav.mr-auto
+      li.nav-item.dropdown
+        a#navbarDropdownMenuLink.nav-link.dropdown-toggle(data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+          | Clientes
+        .dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
+          a.dropdown-item(href='/clientes/nuevo') Soy nuevo
+          a.dropdown-item(href='/clientes/login') LogIn
+      li.nav-item.dropdown
+        a#navbarDropdownMenuLink.nav-link.dropdown-toggle(data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+          | Pedidos
+        .dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
+          a.dropdown-item(href='/pedidos/nuevo') Nuevo pedido
+          a.dropdown-item(href='/pedidos/listado') Ver pedidos
+.container.m-5.text-center
+  h3 Pedido confirmado
+  body
+    div.container.mt-5
+      div.row
+        div.col-4.offset-2.p-3.bg-primary
+          h1 Pedido confirmado
+        div.col-4.p-3.bg-light
+          table.w-100
+            tr
+              th.w-50 Tamaño
+              td.w-50 #{tamano}
+            tr
+              th.w-50 Numero de ingredientes
+              td.w-50 #{ingredientes} 
+            tr
+              th.w-50 Codigo descuento
+              if (codigo == 'MELAKOMO') 
+                td.w-50.text-success
+                  b #{codigo}
+              else
+                td.w-50.text-danger
+                  strike #{codigo}
+            tr
+              th.w-50 Precio final
+              - let preu = 0
+              if (tamano == 'Pequeño')
+                - preu = 5 + (ingredientes * 0.25)
+              else if (tamano == 'Mediana')
+                - preu = 7 + (ingredientes * 0.5)
+              else
+                - preu = 9 + (ingredientes * 0.75)
+
+              if (codigo == 'MELAKOMO')
+                td.w-50.text-success #{Math.round(preu / 1.15, 2)} €
+              else
+                td.w-50.text-success #{Math.round((preu), 2)} €

@@ -5,7 +5,9 @@ const app = express();
 const clients = require('./routes/clients.js');
 const comandes = require('./routes/comandes.js');
 
-app.use('/public', express.static('public'));
+var path = require('path');
+
+app.use("/public", express.static(path.join(__dirname, 'public')));
 
 app.set('view engine', 'pug');
 app.set('views', './views');
@@ -20,7 +22,7 @@ app.get('/', (req, res) => {
     res.render('home');
 });
 
-app.get('*', (req, res) => {
+app.all('*', (req, res) => {
     res.render('error');
 });
 

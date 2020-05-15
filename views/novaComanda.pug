@@ -14,31 +14,27 @@ body
                 li.nav-item.dropdown
                     a#navbarDropdownMenuLink.nav-link.dropdown-toggle(data-toggle='dropdown' aria-haspopup='true' aria-expanded='false') Clientes
                     .dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
-                        a.dropdown-item(href='/clientes/nuevo') Soy nuevo
-                        a.dropdown-item(href='/clientes/login') LogIn
+                        a.dropdown-item(href='/clients/nou') Soy nuevo
+                        a.dropdown-item(href='/clients/login') LogIn
                 li.nav-item.dropdown
                     a#navbarDropdownMenuLink.nav-link.dropdown-toggle(data-toggle='dropdown' aria-haspopup='true' aria-expanded='false') Pedidos
                     .dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
-                        a.dropdown-item(href='/pedidos/nuevo') Nuevo pedido
-                        a.dropdown-item(href='/pedidos/listado') Ver pedidos
+                        a.dropdown-item(href='/comandes/noves') Nuevo pedido
+                        a.dropdown-item(href='/comandes/llista') Ver pedidos
     .container.m-5.text-center
-        h3 Nova comanda
-    div.container.mt-5
-        div.row
-            div.col-4.offset-2.p-3.bg-primary
-                h1 Nuevo Pedido
-                    div.col-4.p-3.bg-info
-                        form(action="/pedidos/confirmar", method="post")
-                            div.form-group
-                                label.text-light(for="tamano") Tamaño de la pizza: <br>
-                                select#tamano.form-control(name='tamano')
-                                    option Petita 
-                                    option Mitjana
-                                    option Familiar
-                                div.form-group
-                                    label.text-light(for="ingredientes") Número de ingredientes:
-                                    input#ingredientes.form-control(type="number", name="ingredientes")
-                                    div.form-group
-                                        label.text-light(for="codigo") Código promocional:
-                                        input#codigo.form-control(type="text", name="codigo")
-                                        button.btn.btn-default(type="submit") Enviar
+        h3 Pizzeria Porzzioni (Nuevo pedido)<br><br>
+            .container
+                form(action="/comandes/confirmar", method="post")
+                    div.form-group
+                        label.text-light(for="tamano") Tamaño de la pizza: <br>
+                        select#tamano.form-control(name='tamano')
+                            option Pequeño 
+                            option Mediana
+                            option Grande
+                    div.form-group
+                        label.text-light(for="ingredientes") Número de ingredientes:
+                        input#ingredientes.form-control(type="number", name="ingredientes")
+                    div.form-group
+                        label.text-light(for="codigo") Código promocional:
+                        input#codigo.form-control(type="text", name="codigo")
+                    button.btn.btn-default(type="submit") Enviar
